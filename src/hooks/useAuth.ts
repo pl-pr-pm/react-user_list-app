@@ -15,6 +15,9 @@ export const useAuth = () => {
   // /home 画面にてローディングを描画したいため、ローディングをステートで保持する
   const [loading, setLoading] = useState(false);
   const { showMessage } = useMessage();
+  /**
+   * global stateの値を取得
+   * global stateにはloginUser, setLoginUser　が格納されている */
   const { setLoginUser } = useLoginUser();
   // ユーザー情報APIにリクエストし、引数のユーザーIDに一致した場合、
   // ログインしたメッセージを表示し、homeに遷移する

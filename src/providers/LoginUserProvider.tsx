@@ -1,3 +1,9 @@
+/**
+ * global state
+ *
+ * ステート：Loginユーザーを管理するコンテキスト
+ */
+
 import {
   createContext,
   Dispatch,
@@ -10,10 +16,15 @@ import { User } from "../types/api/user";
 type LoginUser = User & { isAdmin: boolean };
 
 export type LoginUserContextType = {
-  loginUser: (User & { isAdmin: boolean }) | null;
-  setLoginUser: Dispatch<SetStateAction<LoginUser | null>>;
+  loginUser: (User & { isAdmin: boolean }) | null; // USer
+  setLoginUser: Dispatch<SetStateAction<LoginUser | null>>; // User型LoginUserをステートに登録する関数
 };
 
+/**
+ * LoginUserContextを作成
+ * loginUser, setLoginUserを保持する
+ *
+ */
 export const LoginUserContext = createContext<LoginUserContextType>(
   {} as LoginUserContextType
 );
