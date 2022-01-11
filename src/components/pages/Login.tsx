@@ -1,12 +1,24 @@
+/**
+ * ログイン画面
+ *
+ * 以下を配置
+ * - ユーザーIDの入力エリア
+ * - ログインボタン
+ *
+ */
+
 import { Box, Input, Divider, Flex, Heading, Stack } from "@chakra-ui/react";
 import { ChangeEvent, memo, useState, VFC } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { PrimaryButton } from "../atoms/button/PrimayButton";
 
 export const Login: VFC = memo(() => {
+  // 入力するユーザーIDをステートで保持
   const [userId, setUserID] = useState<string>("");
-
+  // ステートと入力したユーザーIDを同期させる
+  // レンダリングされないので、入力値を更新できない
   const onChangeUserId = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e);
     setUserID(e.target.value);
   };
 
@@ -23,11 +35,11 @@ export const Login: VFC = memo(() => {
         <Stack spacing={3} py={4} px={10}>
           <Input
             placeholder="ユーザーID"
-            value={userId}
+            value={userId} // onChangeUserIdで登録したステートを指定
             onChange={onChangeUserId}
           />
           <PrimaryButton
-            disabled={userId === "" ? true : false}
+            disabled={userId === "" ? true : false} // ユーザーIDの入力がない場合はボタンを非活性とする
             loading={loading}
             onClick={onClickLogin}
           >

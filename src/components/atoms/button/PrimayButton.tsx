@@ -1,6 +1,19 @@
+/**
+ * 本アプリで利用する主要なボタンコンポーネント
+ *
+ * @param
+ * - children
+ *   ボタンに表示するメッセージ
+ */
+
 import { memo, ReactNode, VFC } from "react";
 import { Button } from "@chakra-ui/react";
 
+/**
+ * propsのタイプ
+ *
+ *
+ */
 type Props = {
   children: ReactNode;
   disabled?: boolean;

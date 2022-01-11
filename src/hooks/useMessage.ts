@@ -1,3 +1,7 @@
+/**
+ * toast でのメッセージ表示コンポーネント
+ */
+
 import { useToast } from "@chakra-ui/react";
 import { useCallback } from "react";
 
